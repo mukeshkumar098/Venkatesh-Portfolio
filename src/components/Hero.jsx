@@ -1,340 +1,288 @@
-// import React, { useEffect, useState } from 'react';
-
-// const Hero = () => {
-//   const [displayedText, setDisplayedText] = useState('');
-//   const fullText = 'Venkatesh';
-  
-//   // Typing animation effect
-//   useEffect(() => {
-//     let index = 0;
-//     const typingInterval = setInterval(() => {
-//       if (index < fullText.length) {
-//         setDisplayedText(fullText.slice(0, index + 1));
-//         index++;
-//       } else {
-//         clearInterval(typingInterval);
-//       }
-//     }, 150);
-    
-//     return () => clearInterval(typingInterval);
-//   }, []);
-
-//   return (
-//     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden py-16">
-//       {/* Background decorative elements */}
-//       <div className="absolute top-20 left-10 w-24 h-24 rounded-full bg-[#A18662] opacity-10 animate-pulse"></div>
-//       <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-[#A18662] opacity-5 animate-ping"></div>
-      
-//       <div className="container mx-auto px-6 lg:px-12 z-10">
-//         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-//           {/* Left Side: Text Content */}
-//           <div className="lg:w-1/2 max-w-2xl bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg">
-//             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
-//               Hi, I'm <span className="text-[#A18662]">{displayedText}</span>
-//               <span className="animate-blink">|</span>
-//             </h2>
-            
-//             <div className="h-16 mb-6 overflow-hidden">
-//               <div className="text-2xl md:text-3xl text-[#5A5A5A] font-medium">
-//                 Project Management Expert
-//               </div>
-//             </div>
-           
-//             <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-//               Specializing in design, construction, and entertainment projects with a focus on client collaboration and seamless delivery.
-//             </p>
-            
-//             <div className="flex flex-wrap gap-4">
-//               <a
-//                 href="#projects"
-//                 className="bg-[#A18662] hover:bg-[#8A6F4F] text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg flex items-center gap-2"
-//               >
-//                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-//                 </svg>
-//                 View Projects
-//               </a>
-//               <a
-//                 href="#contact"
-//                 className="border-2 border-[#A18662] text-[#A18662] hover:bg-[#A18662] hover:text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg flex items-center gap-2"
-//               >
-//                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-//                 </svg>
-//                 Get In Touch
-//               </a>
-//             </div>
-            
-//             {/* Social links */}
-//             <div className="flex gap-4 mt-8">
-//               {[
-//                 { name: 'LinkedIn', icon: 'M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z' },
-//                 { name: 'Twitter', icon: 'M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z' },
-//                 { name: 'Instagram', icon: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z' }
-//               ].map((social, index) => (
-//                 <a
-//                   key={index}
-//                   href="#"
-//                   className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-[#5A5A5A] hover:bg-[#A18662] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
-//                   aria-label={social.name}
-//                 >
-//                   <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-//                     <path d={social.icon} fill="currentColor" />
-//                   </svg>
-//                 </a>
-//               ))}
-//             </div>
-//           </div>
-          
-//           {/* Right Side: Professional Image */}
-//           <div className="lg:w-1/2 flex justify-center">
-//             <div className="relative">
-//               <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-8 border-white bg-white">
-//                 <img
-//                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
-//                   alt="Venkatesh - Project Management Expert"
-//                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-//                   onError={(e) => {
-//                     e.target.src = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80';
-//                   }}
-//                 />
-//               </div>
-              
-//               {/* Floating elements around image */}
-//               <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-[#A18662] opacity-20 animate-pulse"></div>
-//               <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-[#A18662] opacity-10 animate-ping"></div>
-              
-//               {/* Decorative elements */}
-//               <div className="absolute top-10 -left-10 w-8 h-8 border-4 border-[#A18662] rounded-full opacity-30"></div>
-//               <div className="absolute bottom-10 -right-10 w-12 h-12 border-4 border-[#A18662] rounded-full opacity-20"></div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-      
-//       {/* Scroll indicator */}
-//       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-//         <div className="animate-bounce flex flex-col items-center text-[#5A5A5A]">
-//           <span className="text-sm mb-2">Scroll Down</span>
-//           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-//             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-//           </svg>
-//         </div>
-//       </div>
-      
-//       <style jsx>{`
-//         @keyframes blink {
-//           0%, 50% { opacity: 1; }
-//           51%, 100% { opacity: 0; }
-//         }
-//         .animate-blink {
-//           animation: blink 1s step-end infinite;
-//         }
-//       `}</style>
-//     </section>
-//   );
-// };
-
-// export default Hero;
-
-
-// import React from 'react';
-
-// const HeroSection = () => {
-//   return (
-//     <section className="relative min-h-screen flex items-center justify-center bg-white text-gray-900 overflow-hidden">
-//       {/* Background Curved Design */}
-//       <div className="absolute inset-0 z-0">
-//         <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
-//           <path
-//             fill="#4f46e5"
-//             fillOpacity="0.1"
-//             d="M0,160L80,138.7C160,117,320,75,480,80C640,85,800,138,960,149.3C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-//           />
-//         </svg>
-//         <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/50 to-purple-100/50"></div>
-//       </div>
-
-//       <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
-//         {/* Left Side: Text Content */}
-//         <div className="md:w-1/2 text-center md:text-left animate-fade-in-left">
-//           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
-//             Hi, I am Venkatesh
-//           </h1>
-//           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-700 max-w-lg mx-auto md:mx-0">
-//             Specializing in design, construction, and entertainment projects with a focus on client collaboration and seamless delivery.
-//           </p>
-//           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-//             <a
-//               href="#projects"
-//               className="inline-block px-8 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-full text-white font-semibold transition duration-300 shadow-lg transform hover:scale-105"
-//             >
-//               View My Work
-//             </a>
-//             <a
-//               href="#contact"
-//               className="inline-block px-8 py-4 bg-transparent border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white rounded-full font-semibold transition duration-300 shadow-lg transform hover:scale-105"
-//             >
-//               Contact Me
-//             </a>
-//           </div>
-//         </div>
-
-//         {/* Right Side: Image */}
-//         <div className="md:w-1/2 flex justify-center md:justify-end animate-fade-in-right">
-//           <div className="relative">
-//             <img
-//               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-//               alt="Venkatesh Portfolio Image"
-//               className="w-full max-w-md rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500"
-//             />
-//             <div className="absolute -inset-4 bg-indigo-200/30 rounded-3xl -z-10 transform rotate-3"></div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Floating Decorative Elements */}
-//       <div className="absolute top-10 left-10 w-16 h-16 bg-purple-300/30 rounded-full animate-pulse"></div>
-//       <div className="absolute bottom-20 right-20 w-24 h-24 bg-indigo-300/30 rounded-full animate-pulse delay-100"></div>
-//     </section>
-//   );
-// };
-
-// export default HeroSection;
-
-
-
-
-
-
-// import React from 'react';
-
-// const HeroSection = () => {
-//   return (
-//     <section className="relative min-h-screen flex items-center justify-center bg-white text-gray-900 overflow-hidden">
-//       {/* Background Curved Design */}
-//       <div className="absolute inset-0 z-0">
-//         <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
-//           <path
-//             fill="#f97316"
-//             fillOpacity="0.15"
-//             d="M0,160L80,186.7C160,213,320,267,480,266.7C640,267,800,213,960,186.7C1120,160,1280,160,1360,160L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-//           />
-//         </svg>
-//         <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-rose-100/50"></div>
-//       </div>
-
-//       <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
-//         {/* Left Side: Text Content */}
-//         <div className="md:w-1/2 text-center md:text-left animate-fade-in-left">
-//           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-rose-500">
-//             Hi, I am Venkatesh
-//           </h1>
-//           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-600 max-w-lg mx-auto md:mx-0">
-//             Specializing in design, construction, and entertainment projects with a focus on client collaboration and seamless delivery.
-//           </p>
-//           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-//             <a
-//               href="#projects"
-//               className="inline-block px-8 py-4 bg-amber-500 hover:bg-amber-600 rounded-full text-white font-semibold transition duration-300 shadow-lg transform hover:scale-105 hover:shadow-xl"
-//             >
-//               View My Work
-//             </a>
-//             <a
-//               href="#contact"
-//               className="inline-block px-8 py-4 bg-transparent border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white rounded-full font-semibold transition duration-300 shadow-lg transform hover:scale-105 hover:shadow-xl"
-//             >
-//               Contact Me
-//             </a>
-//           </div>
-//         </div>
-
-//         {/* Right Side: Image */}
-//         <div className="md:w-1/2 flex justify-center md:justify-end animate-fade-in-right">
-//           <div className="relative">
-//             <img
-//               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-//               alt="Venkatesh Portfolio Image"
-//               className="w-full max-w-xs rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500"
-//             />
-//             <div className="absolute -inset-4 bg-amber-200/30 rounded-3xl -z-10 transform rotate-2"></div>
-//             <div className="absolute -inset-6 bg-rose-200/20 rounded-3xl -z-20 transform -rotate-2"></div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Floating Decorative Elements */}
-//       <div className="absolute top-10 left-10 w-12 h-12 bg-amber-300/30 rounded-full animate-pulse"></div>
-//       <div className="absolute bottom-16 right-16 w-20 h-20 bg-rose-300/30 rounded-full animate-pulse delay-200"></div>
-//       <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-orange-200/30 rounded-full animate-pulse delay-400"></div>
-//     </section>
-//   );
-// };
-
-// export default HeroSection;
-
-
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const HeroSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isWhatsAppHovered, setIsWhatsAppHovered] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "9742815086"; // Replace with your actual number
+    const message = "Hi Venkatesh, I came across your portfolio and would like to connect with you!";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
-    <section className="relative pt-6 pb-5 flex items-center justify-center bg-white text-gray-900 overflow-hidden">
-      {/* Background Curved Design */}
-      <div className="absolute inset-0 z-0">
-        <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path
-            fill="#000000"
-            fillOpacity="0.1"
-            d="M0,160L80,186.7C160,213,320,267,480,266.7C640,267,800,213,960,186.7C1120,160,1280,160,1360,160L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-          />
-        </svg>
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-gray-300/50"></div>
+    <section className="relative pt-3 flex items-center justify-center text-white overflow-hidden" style={{backgroundColor: 'black'}}>
+      {/* WhatsApp Floating Button */}
+      <div 
+        className={`fixed bottom-6 right-6 z-50 transition-all duration-500 whatsapp-float ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+        onMouseEnter={() => setIsWhatsAppHovered(true)}
+        onMouseLeave={() => setIsWhatsAppHovered(false)}
+      >
+        <div className="relative">
+          {/* Main WhatsApp Button */}
+          <button
+            onClick={handleWhatsAppClick}
+            className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 transform ${
+              isWhatsAppHovered 
+                ? 'scale-110 rotate-6 shadow-lg' 
+                : 'scale-100 rotate-0 shadow-xl'
+            } bg-gradient-to-br from-green-500 to-green-600 hover:bg-green-600`}
+          >
+            {/* Animated Background Gradient */}
+            <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${
+              isWhatsAppHovered 
+                ? 'from-green-400 via-green-500 to-green-600 animate-gradient-shift' 
+                : 'from-green-400 via-green-500 to-green-600 opacity-50'
+            } transition-all duration-500 blur-sm`}></div>
+            
+            {/* WhatsApp Icon */}
+            <svg 
+              className={`w-8 h-8 sm:w-9 sm:h-9 transition-all duration-300 relative z-10 ${
+                isWhatsAppHovered ? 'scale-110 whatsapp-icon-hover' : 'scale-100'
+              }`} 
+              viewBox="0 0 24 24" 
+              fill="currentColor"
+            >
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+
+            {/* Glowing Ring Effect */}
+            <div className={`absolute inset-0 rounded-full border-2 border-green-400/50 animate-glow-ring ${
+              isWhatsAppHovered ? 'scale-125 opacity-100' : 'scale-100 opacity-60'
+            } transition-all duration-500`}></div>
+
+            {/* Particle Effects */}
+            <div className={`absolute top-0 left-0 w-2 h-2 bg-green-300 rounded-full ${
+              isWhatsAppHovered ? 'animate-float-particle particle-1' : 'opacity-0'
+            }`}></div>
+            <div className={`absolute bottom-0 right-0 w-1.5 h-1.5 bg-green-400 rounded-full ${
+              isWhatsAppHovered ? 'animate-float-particle particle-2' : 'opacity-0'
+            }`}></div>
+            <div className={`absolute top-1 right-1 w-2 h-2 bg-green-500 rounded-full ${
+              isWhatsAppHovered ? 'animate-float-particle particle-3' : 'opacity-0'
+            }`}></div>
+            <div className={`absolute bottom-1 left-1 w-1.5 h-1.5 bg-green-200 rounded-full ${
+              isWhatsAppHovered ? 'animate-float-particle particle-4' : 'opacity-0'
+            }`}></div>
+          </button>
+
+          {/* Hover Tooltip */}
+          <div className={`absolute right-full mr-3 top-1/2 transform -translate-y-1/2 transition-all duration-300 ${
+            isWhatsAppHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
+          }`}>
+            <div className="bg-gray-900 text-white px-3 py-2 rounded-lg shadow-lg whitespace-nowrap text-sm font-medium border border-gray-700">
+              Chat with me!
+              <div className="absolute top-1/2 right-0 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="container mx-auto px-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap- relative z-10">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Gradient Orbs */}
+        <div className="absolute top-10% left-5% w-32 h-32 sm:w-40 sm:h-40 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10% right-5% w-48 h-48 sm:w-60 sm:h-60 bg-yellow-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="container px-4 sm:px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 relative z-10 min-h-fit">
         {/* Left Side: Text Content */}
-        <div className="md:w-1/2 text-center md:text-left animate-fade-in-left">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-700">
-            Hi, I am Venkatesh
+        <div className={`md:w-2/5 text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="mb-4">
+            <span className="inline-block px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-medium mb-3 border border-orange-500/30">
+              Welcome to My Portfolio
+            </span>
+          </div>
+          
+          <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight">
+            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">Venkatesh Prasad</span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-600 max-w-lg mx-auto md:mx-0">
-            Specializing in design, construction, and entertainment projects with a focus on client collaboration and seamless delivery.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          
+          <p className="text-base sm:text-lg md:text-xl lg:text-xl mb-6 text-gray-300 max-w-lg mx-0 leading-relaxed">
+            MBA in Finance, <span className="text-orange-400 font-medium">specializing in Finance, </span><span className="text-yellow-400 font-medium">Strategy, </span>and <span className="text-orange-400 font-medium">Business Management. </span>
+            Currently building new ventures in collaboration with Exquisite Groups, a company in entertainment and construction, with a focus on innovation, growth, and sustainable partnerships.</p>
+          
+          <div className="flex flex-col sm:flex-row gap-3 justify-start">
             <a
               href="#services"
-              className="inline-block px-8 py-4 bg-black hover:bg-gray-800 rounded-full text-white font-semibold transition duration-300 shadow-lg transform hover:scale-105 hover:shadow-xl"
+              className="group relative inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-yellow-500 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 overflow-hidden text-sm"
             >
-              View My Work
+              <span className="relative z-10">View My Work</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <svg className="w-4 h-4 ml-2 relative z-10 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
             </a>
+            
             <a
               href="#contact"
-              className="inline-block px-8 py-4 bg-transparent border-2 border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white rounded-full font-semibold transition duration-300 shadow-lg transform hover:scale-105 hover:shadow-xl"
+              className="group relative inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-transparent border-2 border-orange-500 text-orange-400 hover:text-black font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 overflow-hidden text-sm"
             >
-              Contact Me
+              <span className="relative z-10">Contact Me</span>
+              <div className="absolute inset-0 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0"></div>
             </a>
           </div>
+
+          {/* Stats Section */}
+          {/* <div className="flex gap-4 mt-6 sm:mt-8 justify-start">
+            {[
+              { value: '7+', label: 'Years Experience' },
+              { value: '50+', label: 'Projects Completed' },
+              { value: '100%', label: 'Client Satisfaction' }
+            ].map((stat, index) => (
+              <div key={index} className="text-center p-2 sm:p-3 bg-transparent rounded-xl backdrop-blur-sm border border-gray-800/50 hover:border-orange-500/30 transition-colors">
+                <div className="text-lg sm:text-xl font-bold text-yellow-400">{stat.value}</div>
+                <div className="text-xs text-gray-300 mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div> */}
         </div>
 
         {/* Right Side: Image */}
-        <div className="md:w-1/2 flex justify-center md:justify-end animate-fade-in-right">
-          <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="Venkatesh Portfolio Image"
-              className="w-full max-w-sm rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500"
-            />
-            <div className="absolute -inset-4 bg-gray-200/30 rounded-3xl -z-10 transform rotate-2"></div>
-            <div className="absolute -inset-6 bg-gray-300/20 rounded-3xl -z-20 transform -rotate-2"></div>
+        <div className={`md:w-3/5 flex justify-center transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="relative group w-full max-w-md sm:max-w-xl md:max-w-2xl">
+            <div className="relative overflow-hidden rounded-2xl transform group-hover:scale-105 transition-transform duration-700">
+              <img
+                src="image-Photoroom.png"
+                alt="Venkatesh Portfolio Image"
+                className="w-full h-auto rounded-2xl shadow-2xl transform group-hover:scale-110 transition-transform duration-700 object-contain"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            
+            {/* Floating elements around image */}
+            <div className="absolute -top-4 sm:-top-6 -left-4 sm:-left-6 w-16 sm:w-24 h-16 sm:h-24 bg-orange-500/20 rounded-xl -z-10 transform rotate-12 group-hover:rotate-6 transition-transform duration-500"></div>
+            <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 w-20 sm:w-28 h-20 sm:h-28 bg-yellow-500/20 rounded-xl -z-10 transform -rotate-12 group-hover:-rotate-6 transition-transform duration-500"></div>
+            
+            {/* Decorative dots */}
+            <div className="absolute -top-6 sm:-top-8 right-8 sm:right-10 w-6 sm:w-8 h-6 sm:h-8 bg-yellow-400 rounded-full animate-bounce opacity-80"></div>
+            <div className="absolute bottom-2 sm:bottom-4 -left-6 sm:-left-8 w-5 sm:w-6 h-5 sm:h-6 bg-orange-400 rounded-full animate-bounce delay-500 opacity-80"></div>
           </div>
         </div>
       </div>
 
-      {/* Floating Decorative Elements */}
-      <div className="absolute top-10 left-10 w-12 h-12 bg-gray-300/30 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-16 right-16 w-20 h-20 bg-gray-400/30 rounded-full animate-pulse delay-200"></div>
-      <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-gray-200/30 rounded-full animate-pulse delay-400"></div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-5 h-8 border-2 border-orange-500 rounded-full flex justify-center">
+          <div className="w-1 h-2 bg-orange-500 rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+
+      {/* Enhanced WhatsApp Animation Styles */}
+      <style jsx>{`
+        @keyframes float-particle {
+          0% { 
+            transform: translate(0, 0) scale(0); 
+            opacity: 1; 
+          }
+          50% { 
+            transform: translate(var(--x), var(--y)) scale(1.2); 
+            opacity: 0.7; 
+          }
+          100% { 
+            transform: translate(var(--x), var(--y)) scale(0); 
+            opacity: 0; 
+          }
+        }
+
+        .particle-1 { --x: 10px; --y: -12px; animation: float-particle 1.2s ease-out forwards; }
+        .particle-2 { --x: -8px; --y: 10px; animation: float-particle 1.4s ease-out forwards 0.2s; }
+        .particle-3 { --x: 12px; --y: 8px; animation: float-particle 1.3s ease-out forwards 0.4s; }
+        .particle-4 { --x: -10px; --y: -10px; animation: float-particle 1.5s ease-out forwards 0.6s; }
+
+        @keyframes glow-ring {
+          0% { 
+            box-shadow: 0 0 5px 0 rgba(34, 197, 94, 0.5), 0 0 10px 0 rgba(34, 197, 94, 0.3);
+          }
+          50% { 
+            box-shadow: 0 0 10px 5px rgba(34, 197, 94, 0.7), 0 0 20px 10px rgba(34, 197, 94, 0.4);
+          }
+          100% { 
+            box-shadow: 0 0 5px 0 rgba(34, 197, 94, 0.5), 0 0 10px 0 rgba(34, 197, 94, 0.3);
+          }
+        }
+
+        .animate-glow-ring {
+          animation: glow-ring 2s ease-in-out infinite;
+        }
+
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient-shift {
+          background-size: 200% 200%;
+          animation: gradient-shift 3s ease-in-out infinite;
+        }
+
+        @keyframes icon-shimmer {
+          0% { 
+            filter: brightness(1) saturate(1);
+          }
+          50% { 
+            filter: brightness(1.3) saturate(1.5);
+          }
+          100% { 
+            filter: brightness(1) saturate(1);
+          }
+        }
+
+        .whatsapp-icon-hover {
+          animation: icon-shimmer 1.2s ease-in-out infinite;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 640px) {
+          .container {
+            flex-direction: column;
+            gap: 2rem;
+          }
+          
+          .md\\:w-2\\/5, .md\\:w-3\\/5 {
+            width: 100%;
+          }
+          
+          .text-left {
+            text-align: left;
+          }
+          
+          .max-w-lg {
+            margin-left: 0;
+            margin-right: 0;
+          }
+
+          .fixed {
+            bottom: 4rem;
+            right: 1.5rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .fixed {
+            bottom: 3rem;
+            right: 1rem;
+          }
+        }
+
+        /* Continuous floating animation for the button */
+        @keyframes gentle-float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          25% { transform: translateY(-4px) rotate(2deg); }
+          50% { transform: translateY(-8px) rotate(0deg); }
+          75% { transform: translateY(-4px) rotate(-2deg); }
+        }
+
+        .whatsapp-float {
+          animation: gentle-float 3.5s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };

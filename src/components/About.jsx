@@ -2,68 +2,95 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section id="about" className="relative  bg-white text-gray-900 overflow-hidden">
-      {/* Background Curved Design */}
-      <div className="absolute inset-0 z-0">
-        <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path
-            fill="#000000"
-            fillOpacity="0.12"
-            d="M0,128L60,138.7C120,149,240,171,360,170.7C480,171,600,149,720,128C840,107,960,85,1080,96C1200,107,1320,149,1380,170.7L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
-          />
-          <path
-            fill="#1f1f1f"
-            fillOpacity="0.08"
-            d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,170.7C1120,192,1280,192,1360,181.3L1440,171L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-          />
-        </svg>
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/60 to-gray-200/60"></div>
-      </div>
-
-      <div className="container mx-auto px-6 py-16 md:py-24 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-          {/* Left Side: Image */}
-          <div className=" hidden md:block md:w-1/2 mb-10 md:mb-0 flex justify-center animate-fade-in-left">
-            <div className="relative w-full max-w-md">
+    <section id="about" className="relative bg-black text-white overflow-hidden py-16 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-12">
+          {/* Left Side: Image - Hidden on mobile, visible on desktop */}
+          <div className="hidden md:block md:w-2/5 flex justify-center">
+            <div className="relative w-full max-w-sm group">
               <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Venkatesh Portrait"
-                className="w-full h-auto max-h-[400px] object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500 grayscale"
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                alt="Construction and Design Professional"
+                className="w-full h-auto rounded-xl shadow-xl transform group-hover:scale-105 transition duration-700 border-2 border-orange-500/30 object-cover"
+                style={{ height: '480px' }}
               />
-              <div className="absolute -inset-4 bg-gray-200/30 rounded-3xl -z-10 transform rotate-2"></div>
-              <div className="absolute -inset-6 bg-gray-300/20 rounded-3xl -z-20 transform -rotate-2"></div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -top-3 -left-3 w-12 h-12 bg-orange-500/20 rounded-lg -z-10 transform rotate-12"></div>
+              <div className="absolute -bottom-3 -right-3 w-16 h-16 bg-yellow-500/20 rounded-lg -z-10 transform -rotate-12"></div>
             </div>
           </div>
 
           {/* Right Side: Text Content */}
-          <div className="md:w-1/2 md:pl-16 text-center md:text-left animate-fade-in-right">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-700 tracking-tight">
-              About Me
+          <div className="w-full md:w-3/5">
+            <div className="mb-5 flex justify-center md:justify-start">
+              <span className="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-medium border border-orange-500/30">
+                Professional Background
+              </span>
+            </div>
+            
+            <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-center md:text-left">
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">Venkatesh Prasad</span>
             </h2>
-            <p className="text-sm md:text-base text-gray-600 mb-4 max-w-lg mx-auto md:mx-0 leading-relaxed">
-              With over 10 years of experience in construction and interior design, I specialize in transforming spaces through innovative design, precise project management, and seamless client collaboration.
-            </p>
-            <p className="text-sm md:text-base text-gray-600 mb-6 max-w-lg mx-auto md:mx-0 leading-relaxed">
-              My expertise lies in delivering high-quality construction projects and crafting stunning interiors that blend functionality with aesthetic appeal, ensuring every project meets client visions and industry standards.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto md:mx-0">
-              <div className="p-4 bg-gray-100/70 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <h3 className="text-lg font-semibold text-black mb-1">Construction Management</h3>
-                <p className="text-gray-600 text-sm">Overseeing projects with precision and efficiency</p>
+            
+            <div className="space-y-4 mb-8">
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                I’ve spent <span className="text-orange-400 font-semibold">7+ years in Banking</span>and IT, building skills in finance, strategy, and business management and I love turning fresh ideas into real businesses. Beyond work, I’m passionate about fitness, with 4+ years in the industry, which keeps me disciplined and motivated.
+
+              </p>
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                With Exquisite Groups, I get to work on things I truly enjoy whether it’s creating spaces through Exquisite Constructions or shaping stories and talent with Exquisite Entertainments. For me, it’s all about blending business, creativity, and passion to make an impact.
+              </p>
+            </div>
+            
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="p-4 bg-transperant rounded-lg border border-gray-800 hover:border-orange-500/50 transition-all duration-300">
+                <div className="flex items-center mb-2">
+                  <div className="w-9 h-9 bg-orange-500/20 rounded-md flex items-center justify-center mr-3">
+                    <svg className="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-8 0H5m2 0h4M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-md font-semibold text-white">Construction Management</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm">Overseeing projects with precision and efficiency from concept to completion</p>
               </div>
-              <div className="p-4 bg-gray-100/70 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <h3 className="text-lg font-semibold text-black mb-1">Interior Design</h3>
-                <p className="text-gray-600 text-sm">Creating functional and visually appealing spaces</p>
+              
+              <div className="p-4 bg-transperant rounded-lg border border-gray-800 hover:border-yellow-500/50 transition-all duration-300">
+                <div className="flex items-center mb-2">
+                  <div className="w-9 h-9 bg-yellow-500/20 rounded-md flex items-center justify-center mr-3">
+                    <svg className="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-md font-semibold text-white">Interior Design</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm">Creating functional and visually appealing spaces that reflect client personality</p>
               </div>
             </div>
+            
+          
+           
+          </div>
+        </div>
+
+        {/* Mobile Image - Only visible on small screens */}
+        <div className="mt-10 md:hidden flex justify-center">
+          <div className="relative w-full max-w-xs group">
+            <img
+              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+              alt="Construction and Design Professional"
+              className="w-full h-auto rounded-xl shadow-xl border-2 border-orange-500/30 object-cover"
+              style={{ height: '320px' }}
+            />
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-2 -left-2 w-10 h-10 bg-orange-500/20 rounded-md -z-10 transform rotate-12"></div>
+            <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-yellow-500/20 rounded-md -z-10 transform -rotate-12"></div>
           </div>
         </div>
       </div>
-
-      {/* Floating Decorative Elements */}
-      <div className="absolute top-12 left-12 w-14 h-14 bg-gray-300/30 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-24 h-24 bg-gray-400/30 rounded-full animate-pulse delay-200"></div>
-      <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-gray-200/30 rounded-full animate-pulse delay-400"></div>
     </section>
   );
 };

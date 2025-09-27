@@ -5,7 +5,7 @@ const CollaborationCard = ({ image, title, description, link }) => {
 
   return (
     <div
-      className="max-w-xs rounded-xl m-2 relative overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200"
+      className="max-w-md sm:max-w-xs rounded-xl m-2 relative overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-800"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -22,8 +22,8 @@ const CollaborationCard = ({ image, title, description, link }) => {
         </div>
       </div>
       <div className="p-3">
-        <h3 className="text-base font-bold text-gray-900 mb-1">{title}</h3>
-        <p className="text-gray-600 text-xs leading-tight mb-2">{description}</p>
+        <h3 className="text-base font-bold text-white mb-1">{title}</h3>
+        <p className="text-gray-300 text-xs leading-tight mb-2">{description}</p>
         <div
           className={`absolute bottom-4 right-4 opacity-0 transition-opacity duration-300 ${
             isHovered ? 'opacity-100' : 'opacity-0'
@@ -55,39 +55,36 @@ const Services = () => {
       description: "Event operations & production support — on-ground coordination, logistics and vendor management.",
       link: "#"
     },
-    {
-      image: "https://th.bing.com/th/id/OIP.FuX67Uonfn0mFbH1PINvMwHaEO?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
-      title: "Fashion & Retail",
-      description: "Support for retail operations, merchandising and rollout coordination across stores and launches.",
-      link: "#"
-    }
+   
+   
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-white overflow-hidden">
+    <section id="services" className="relative py-10 bg-black overflow-hidden">
       {/* Background Curved Design */}
-      <div className="absolute inset-0 z-0">
-        <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path
-            fill="#000000"
-            fillOpacity="0.1"
-            d="M0,160L80,186.7C160,213,320,267,480,266.7C640,267,800,213,960,186.7C1120,160,1280,160,1360,160L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-          />
-        </svg>
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-gray-300/50"></div>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Gradient Orbs */}
+        <div className="absolute top-20 left-10 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-60 h-60 bg-yellow-500/10 rounded-full blur-3xl"></div>
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,165,0,0.3) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
       </div>
 
-      <div className="container mx-auto px-10 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-700">
-            Businesses I Collaborate With
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-left md:text-center mb-12">
+          <h2 className="text-2xl md:text-4xl font-extrabold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-yellow-500">
+           <span className='text-white'>Businesses I</span> Collaborate With
           </h2>
-          <p className="text-base md:text-lg mb-6 text-gray-600 max-w-lg mx-auto md:mx-0 leading-relaxed">
+          <p className="text-base md:text-lg mb-6 text-gray-300 max-w-lg mx-0 md:mx-auto leading-relaxed">
             Discover the diverse industries and dedicated partners I collaborate with to deliver outstanding project results.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
           {collaborations.map((collab, index) => (
             <CollaborationCard key={index} {...collab} />
           ))}
@@ -95,9 +92,9 @@ const Services = () => {
       </div>
 
       {/* Floating Decorative Elements */}
-      <div className="absolute top-10 left-10 w-12 h-12 bg-gray-300/30 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-16 right-16 w-20 h-20 bg-gray-400/30 rounded-full animate-pulse delay-200"></div>
-      <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-gray-200/30 rounded-full animate-pulse delay-400"></div>
+      <div className="absolute top-10 left-10 w-12 h-12 bg-orange-500/10 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-16 right-16 w-20 h-20 bg-yellow-500/10 rounded-full animate-pulse delay-200"></div>
+      <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-orange-500/10 rounded-full animate-pulse delay-400"></div>
     </section>
   );
 };
